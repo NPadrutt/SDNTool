@@ -1,5 +1,9 @@
 package manager;
 
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
 /**
  * Created by nino on 23.11.2016.
  */
@@ -11,7 +15,7 @@ public class FlowManager {
 
     }
 
-    public static boolean setFlowMeter(String nodeId, String destIP, String outputPort, String flowId, String meterId) throws JSONException {
+    public void setFlowMeter(String nodeId, String destIP, String outputPort, String flowId, String meterId) throws JSONException {
 
         JSONObject flow = new JSONObject();
         JSONObject postData = new JSONObject();
@@ -65,9 +69,6 @@ public class FlowManager {
         flow.put("match", match);
         flow.put("instructions", instructions);
         postData.put("flow", flow);
-
-        return FlowManager.installFlow(nodeId, flowId, postData);
-
     }
 
 
