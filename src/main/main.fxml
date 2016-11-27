@@ -11,10 +11,14 @@
 <VBox prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
   <children>
       <Label text="Controller Adresse " />
-      <TextField />
+      <TextField id="sourceAddressText" />
+      <Label layoutX="22.0" layoutY="22.0" text="Ziel Adresse" />
+      <TextField id="destinationAddressText" layoutX="22.0" layoutY="57.0" />
+      <Label layoutX="22.0" layoutY="108.0" text="Out Port" />
+      <TextField id="outPortText" layoutX="22.0" layoutY="143.0" />
     <Button fx:id="activateFlowButton" alignment="CENTER" cancelButton="false" maxHeight="-1.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Flow aktivieren" textAlignment="CENTER">
       <VBox.margin>
-        <Insets top="12.0" />
+        <Insets top="32.0" />
       </VBox.margin>
     </Button>
     <Separator prefWidth="200.0">
