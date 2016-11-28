@@ -11,16 +11,17 @@
 <VBox prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
   <children>
       <Label text="Controller Adresse " />
-      <TextField id="sourceAddressText" />
-      <Label layoutX="22.0" layoutY="22.0" text="Ziel Adresse" />
-      <TextField id="destinationAddressText" layoutX="22.0" layoutY="57.0" />
+      <TextField fx:id="sourceAddressText" text="192.168.1.100" />
+      <Label layoutX="22.0" layoutY="280.0" text="Port" />
+      <TextField fx:id="portText" layoutX="22.0" layoutY="315.0" text="8181" />
+      <Label layoutX="22.0" layoutY="22.0" text="PC1 Adresse" />
+      <TextField fx:id="pc1AddressText" layoutX="22.0" layoutY="57.0" text="192.168.1.150" />
+      <Label layoutX="22.0" layoutY="22.0" text="PC2 Adresse" />
+      <TextField fx:id="pc2AddressText" layoutX="22.0" layoutY="57.0" text="192.168.1.200" />
+      <Label layoutX="22.0" layoutY="194.0" text="Node ID" />
+      <TextField fx:id="nodeIdText" layoutX="22.0" layoutY="229.0" text="1" />
       <Label layoutX="22.0" layoutY="108.0" text="Out Port" />
-      <TextField id="outPortText" layoutX="22.0" layoutY="143.0" />
-    <Button fx:id="activateFlowButton" alignment="CENTER" cancelButton="false" maxHeight="-1.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Flow aktivieren" textAlignment="CENTER">
-      <VBox.margin>
-        <Insets top="32.0" />
-      </VBox.margin>
-    </Button>
+      <TextField fx:id="outPortText" layoutX="22.0" layoutY="143.0" text="16" />
     <Separator prefWidth="200.0">
       <VBox.margin>
         <Insets top="12.0" />
@@ -31,6 +32,11 @@
         <Insets bottom="12.0" top="12.0" />
       </VBox.margin>
     </Slider>
+    <Button fx:id="activateFlowButton" alignment="CENTER" cancelButton="false" maxHeight="-1.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Flow aktivieren" textAlignment="CENTER">
+      <VBox.margin>
+        <Insets top="50.0" />
+      </VBox.margin>
+    </Button>
   </children>
    <padding>
       <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />

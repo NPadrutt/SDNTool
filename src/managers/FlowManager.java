@@ -5,6 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import Utilities.Settings;
+import javafx.scene.control.Alert;
 import org.apache.commons.codec.binary.Base64;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -63,6 +64,7 @@ public class FlowManager {
             System.err.println("Unexpected error while flow installation.. "
                     + e.getMessage());
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -122,6 +124,7 @@ public class FlowManager {
             System.err.println("Unexpected error while meter installation.. "
                     + e.getMessage());
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -170,6 +173,7 @@ public class FlowManager {
             System.err.println("Unexpected error while meter deletion.."
                     + e.getMessage());
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -217,6 +221,7 @@ public class FlowManager {
             System.err.println("Unexpected error while flow deletion.."
                     + e.getMessage());
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -264,6 +269,7 @@ public class FlowManager {
             System.err.println("Unexpected error while flow deletion.."
                     + e.getMessage());
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
         } finally {
             if (connection != null) {
                 connection.disconnect();

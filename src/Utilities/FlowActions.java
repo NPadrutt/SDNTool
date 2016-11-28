@@ -7,6 +7,51 @@ import org.codehaus.jettison.json.JSONObject;
 
 public class FlowActions {
 
+    public static boolean addFlowDestIP(String url, String nodeId, String destIP, String outputPort, String flowId) throws JSONException {
+
+        JSONObject flow = new JSONObject();
+        JSONObject postData = new JSONObject();
+        JSONObject match = new JSONObject();
+        JSONObject ethernetmatch = new JSONObject();
+        JSONObject ethernettype = new JSONObject();
+        JSONObject instructions = new JSONObject();
+        JSONObject instructionApplyAction = new JSONObject();
+        JSONObject applyactions = new JSONObject();
+        JSONObject action = new JSONObject();
+        JSONObject outputaction = new JSONObject();
+
+        ethernettype.put("type", 2048);
+        ethernetmatch.put("ethernet-type", ethernettype);
+        match.put("ethernet-match", ethernetmatch);
+        match.put("ipv4-destination", destIP);
+
+        outputaction.put("output-node-connector", outputPort);
+        action.put("output-action", outputaction);
+        action.put("order", 0);
+
+        applyactions.put("action", new JSONArray().put(action));
+
+        instructionApplyAction.put("order", "0");
+        instructionApplyAction.put("apply-actions", applyactions);
+        instructions.put("instruction", instructionApplyAction);
+
+        flow.put("id", flowId);
+        flow.put("flow-name", "flow1");
+        flow.put("priority", 999);
+        flow.put("table_id", 0);
+        flow.put("hard-timeout", 0);
+        flow.put("idle-timeout", 0);
+        flow.put("cookie", 0);
+        flow.put("strict", true);
+        flow.put("barrier", false);
+        flow.put("match", match);
+        flow.put("instructions", instructions);
+        postData.put("flow", flow);
+
+        // Actual flow install
+        return FlowManager.installFlow(url, nodeId, flowId, postData);
+    }
+
     public static boolean setFlowMeter(String url, String nodeId, String destIP, String outputPort, String flowId, String meterId)
             throws JSONException {
 
